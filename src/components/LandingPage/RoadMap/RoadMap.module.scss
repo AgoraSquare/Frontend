@@ -1,0 +1,237 @@
+@import '../../../styles/color.scss';
+
+.roadmap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem 8rem;
+    gap: 3rem;
+    background-color: #121212;
+
+    @media screen and (max-width: 800px) {
+        padding: 2rem 2rem 4rem;
+    }
+
+    @media screen and (max-width: 699px) {
+        padding: 2rem 1rem 4rem;
+    }
+
+    @media screen and (max-width: 520px) {
+        padding: 2rem 0 4rem;
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: rgba(#FFF, .87);
+
+        @media screen and (max-width: 699px) {
+            font-size: 1.4rem;
+        }
+
+        @media screen and (max-width: 520px) {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        strong {
+            color: rgba(#FFF, .6);
+        }
+    }
+
+    .roadmap_card {
+        background-color: #121212;
+        width: 100%;
+        height: 30rem;
+        position: relative;
+        display: flex;
+        overflow: hidden;
+
+        .circle_outline {
+            display: flex;
+            flex-direction: column;
+            // gap: 4rem;
+            width: 100%;
+
+            .line {
+                position: absolute;
+                margin: 0 auto;
+                width: 10%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100%;
+                bottom: 80%;
+                left: 0;
+                right: 0;
+    
+                @media screen and (max-width: 980px) {
+                    margin-bottom: 1%;
+                }
+            }
+            .pt1,
+            .pt2,
+            .pt3 {
+                position: absolute;
+            }
+
+            .pt1 {
+                width: 50%;
+                left: 50%;
+                transform: translateX(-15px);
+                top: 0;
+
+                @media screen and (max-width: 900px) {
+                    transform: translateX(-12px);
+                }
+
+                @media screen and (max-width: 640px) {
+                    transform: translateX(-12px);
+                }
+
+                @media screen and (max-width: 490px) {
+                    transform: translateX(-12px);
+                }
+            }
+
+            .pt2 {
+                right: 50%;
+                top: 40%;
+                width: 50%;
+                transform: translateX(15px);
+
+                @media screen and (max-width: 900px) {
+                    transform: translateX(12px);
+                }
+
+                @media screen and (max-width: 640px) {
+                    transform: translateX(12px);
+                }
+
+                @media screen and (max-width: 490px) {
+                    transform: translateX(12px);
+                }
+            }
+
+            .pt3 {
+                bottom: 0rem;
+                width: 50%;
+                left: 50%;
+                transform: translateX(-15px);
+
+                @media screen and (max-width: 900px) {
+                    transform: translateX(-12px);
+                }
+
+                @media screen and (max-width: 640px) {
+                    transform: translateX(-12px);
+                }
+
+                @media screen and (max-width: 490px) {
+                    transform: translateX(-12px);
+                }
+            }
+        }
+    }
+}
+
+.pointL {
+    flex-direction: row-reverse;
+}
+
+.point {
+    flex-direction: row;
+}
+
+.point,.pointL {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @media screen and (max-width: 490px) {
+        gap: .5rem;
+    }
+    .circle_outline_pt {
+        background-color: rgba(#B7b7b7, 100%);
+        border-radius: 50%;
+        padding: .2rem;
+
+        @media screen and (max-width: 980px) {
+            padding: .2rem;
+        }
+
+        .circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #121212;
+
+            @media screen and (max-width: 980px) {
+                width: 19px;
+                height: 19px;
+            }
+        }
+    }
+
+    .content {
+        cursor: default;
+
+        h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: rgba(#FFF, .87);
+            margin-bottom: .4rem;
+
+            @media screen and (max-width: 900px) {
+                font-size: 1.1rem;
+            }
+
+            @media screen and (max-width: 640px) {
+                font-size: 1rem;
+            }
+
+            @media screen and (max-width: 490px) {
+                font-size: .9rem;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+            color: rgba(#FFF, .87);
+            max-width: 33ch;
+            line-height: 2;
+
+            @media screen and (max-width: 640px) {
+                font-size: .8rem;
+            }
+
+            @media screen and (max-width: 490px) {
+                font-size: .75rem;
+                max-width: 35ch;
+            }
+        }
+    }
+
+    &:hover {
+        h3 {
+            background-color: #84B9D1;
+            background-image: linear-gradient(45deg, #84B9D1, #D2B4FC);
+            background-size: 100%;
+            background-clip: unset;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; 
+        }
+
+        .circle {
+            background-color: #121212;
+            
+        }
+
+        .circle_outline_pt {
+            background-image: linear-gradient(45deg, #84B9D1, #D2B4FC);
+        }
+    }
+}

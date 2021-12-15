@@ -1,0 +1,79 @@
+@import '../../styles/color.scss';
+
+.rightSideSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    gap: 1rem;
+    position: sticky;
+    top: 2rem;
+    height: 100%;
+
+    @media screen and (max-width: 1200px) {
+        display: none;
+    }
+}
+
+.trendingPages {
+    border-radius: $card_br_low;
+    padding: 1rem;
+    width: 100%;
+    background-color: #FFF;
+
+    h3 {
+        color: #777777;
+        font-weight: 700;
+        border-bottom: 1px solid #F3F3F3;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        font-family: 'Lato', sans-serif;
+    }
+}
+
+.trendingPagesList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        color: $grey-text;
+        font-weight: 700;
+
+        .avatarSection {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            flex: 1;
+
+            .avatar {
+                width: 2rem;
+                height: 2rem;
+                background-color: #C4C4C4;
+                border-radius: 100%;
+            }
+
+            span {
+                font-family: 'Lato', sans-serif;
+            }
+        }
+
+        .followBtn {
+            border: $border;
+            border-radius: $button_br;
+            cursor: pointer;
+            padding: .8rem 1.2rem;
+            max-height: 32px;
+            font-size: .8rem;
+        }
+    }
+}
+
+.trendingPages {
+    li>span {
+        color: $blue;
+        font-size: .8rem;
+    }
+}

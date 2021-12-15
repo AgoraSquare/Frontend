@@ -1,0 +1,203 @@
+@import "../../../styles/color.scss";
+
+.chatSection {
+    flex: 0.7;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 12px;
+
+    @media screen and (max-width: 1200px) {
+        box-shadow: $box-shadow;
+        flex: 1;
+    }
+
+    .header {
+        border-bottom: 1px solid $border-color;
+        margin: 1.8rem 3rem 1rem 3rem;
+        padding-bottom: 1rem;
+
+        @media screen and (max-width: 1200px) {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0 0.5rem 1rem;
+        }
+
+        @media screen and (max-width: 900px) {
+            padding: 0 0 0 1rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            margin: 0;
+            padding: .2rem .4rem;
+        }
+
+        .backBtn {
+            display: none;
+
+            @media screen and (max-width: 1200px) {
+                display: block;
+            }
+        }
+
+        .profileInfo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+
+            @media screen and (max-width: 1200px) {
+                flex: 1;
+                padding-left: 0;
+            }
+
+            .profilePic {
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                object-fit: cover;
+
+                @media screen and (max-width: 900px) {
+                    width: 37px;
+                    height: 37px;
+                }
+            }
+
+            .usernameContainer {
+                flex: 1;
+
+                h4 {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+
+                    @media screen and (max-width: 520px) {
+                        font-size: 0.9rem;
+                        margin-bottom: 0.25rem;
+                    }
+                }
+
+                p {
+                    color: $light-grey-text;
+                    font-size: 0.9rem;
+
+                    @media screen and (max-width: 520px) {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+
+            i {
+                color: #00000099;
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .chatContainer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 3rem;
+        overflow-y: scroll;
+        gap: 2.5rem;
+
+        @media screen and (max-width: 900px) {
+            background-color: $page_bg;
+        }
+
+        @media screen and (max-width: 600px) {
+            padding: 1rem 1.5rem;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        li {
+            display: flex;
+
+            .space_container {
+                flex: 0.3;
+            }
+        }
+
+        .sentLi {
+            align-self: flex-end;
+        }
+
+        .receivedLi {
+            align-self: flex-start;
+        }
+    }
+
+    .chatBox {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 2rem;
+        border-top: 1px solid $border-color;
+
+        @media screen and (max-width: 900px) {
+            position: sticky;
+            bottom: 0;
+            background-color: #fff;
+            height: 70px;
+        }
+
+        @media screen and (max-width: 600px) {
+            height: 60px;
+            padding: 1rem;
+        }
+
+        input {
+            padding-left: 0.4rem;
+            font-size: 0.9rem;
+            flex: 1;
+            resize: none;
+            border-radius: 24px;
+            height: 49px;
+
+            @media screen and (max-width: 520px) {
+                font-size: 0.9rem;
+            }
+        }
+
+        i {
+            font-size: 1.4rem;
+            color: #84B9D1;
+        }
+    }
+}
+
+.message {
+    display: flex;
+
+    .msg_box {
+        flex: 0.7;
+        border-radius: 12px;
+        padding: 0.7rem 0.7rem 1rem;
+        max-width: 25em;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        background-color: #EEF2F4;
+
+        @media screen and (max-width: 900px) {
+            background-color: #FFF;
+            color: #000;
+        }
+
+        @media screen and (max-width: 520px) {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.received {
+    flex-direction: row-reverse;
+}
+
+.sent_msg_box {
+    background-color: #84B9D1 !important;
+    color: #fff !important;
+}

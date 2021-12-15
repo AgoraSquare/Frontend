@@ -1,0 +1,127 @@
+@import '../.../../../../styles/color.scss';
+
+.userListSection {
+    display: flex;
+    flex-direction: column;
+    flex: .3;
+    background-color: #FFF;
+    border-radius: 12px;
+
+    @media screen and (max-width: 1200px) {
+        box-shadow: $box-shadow;
+        flex: 1;
+    }
+
+    .searchBar {
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        min-height: 45px;
+        margin: 1.5rem 0 1rem 2rem;
+        padding: 0 .7rem 0 1rem;
+        max-width: 83%;
+        background-color: #EEF2F4;
+
+        @media screen and (max-width: 1200px) {
+            align-self: center;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 900px) {
+            margin: 1rem 0;
+            max-width: 90%;
+        }
+
+        input {
+            height: 100%;
+            width: 100%;
+            font-size: .8rem;
+            flex: 1;
+            background-color: transparent;
+        }
+
+        i{
+            cursor: pointer;
+            color: #00000099;
+            margin-right: .8rem;
+            font-size: 1.3rem;
+        }
+    }
+
+    .contacts_list {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+
+        @media screen and (max-width: 900px) {
+            background-color: $page_bg;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    cursor: pointer;
+    padding: .5rem 0 .5rem 1rem;
+    flex: 1;
+
+    @media screen and (max-width: 900px) {
+        padding: .5rem 0 .5rem 1rem;
+    }
+
+    @media screen and (max-width: 520px) {
+        padding: .5rem 0 .5rem 0;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        position: relative;
+        gap: .2rem;
+
+        .topBar {
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            padding-right: 1rem;
+
+            .name {
+                font-family: 'Lato',sans-serif;
+                font-weight: 700;
+                font-size: 1.1rem;
+
+                @media screen and (max-width: 520px) {
+                    font-size: .9rem;
+                }
+            }
+
+            .handle {
+                flex: 1;
+                font-size: .8rem;
+                color: $light-grey-text;
+            }
+
+            .time {
+                font-size: .65rem;
+            }
+        }
+
+        .bottomBar {
+            font-size: .8rem;
+        }
+    }
+}

@@ -1,0 +1,139 @@
+@import '../../../styles/color.scss';
+
+.graphSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem 4rem;
+    gap: 2rem;
+    background-color: #121212;
+
+    @media screen and (max-width: 699px) {
+        padding: 0 4rem 2rem;
+        gap: 1rem;
+    }
+
+    @media screen and (max-width: 520px) {
+        padding: 0 2rem 2rem;
+        gap: 0;
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        margin-top: 1rem;
+        line-height: 1.4;
+        color: rgba($color: #fff, $alpha: .87);
+
+        @media screen and (max-width: 699px) {
+            font-size: 1.4rem;
+        }
+
+        @media screen and (max-width: 520px) {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .graphCard {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        border-radius: 17px;
+        padding: 3rem;
+        gap: 3rem;
+
+        @media screen and (max-width: 1024px) {
+            flex-direction: column-reverse;
+        }
+
+        @media screen and (max-width: 520px) {
+            padding: 2rem 1rem;
+        }
+
+        .section1 {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+
+            h3 {
+                font-size: 1.65rem;
+                color: rgb(56, 56, 56);
+                margin-bottom: 1rem;
+
+                background-color: #84B9D1;
+                background-image: linear-gradient(45deg, #84B9D1, #D2B4FC);
+                background-size: 100%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                @media screen and (max-width: 1024px) {
+                    text-align: center;
+                }
+
+                @media screen and (max-width: 580px) {
+                    font-size: 1.1rem;
+                }
+            }
+
+            p {
+                max-width: 80ch;
+                text-align: center;
+                color: rgba($color: #fff, $alpha: .87);
+                line-height: 1.5;
+
+                @media screen and (max-width: 1024px) {
+                    max-width: inherit;
+                    text-align: center;
+                }
+
+                @media screen and (max-width: 580px) {
+                    font-size: .8rem;
+                }
+
+                @media screen and (max-width: 520px) {
+                    text-align: justify;
+                }
+            }
+        }
+
+        .section2 {
+
+            background-color: #121212;
+
+            @media screen and (max-width: 1024px) {
+                margin-bottom: 2rem;
+            }
+
+            @media screen and (max-width: 900px) {
+                width: 500px;
+                height: 500px;
+            }
+
+            @media screen and (max-width: 700px) {
+                width: 450px;
+                height: 450px;
+            }
+
+            @media screen and (max-width: 580px) {
+                width: 300px;
+                height: 300px;
+            }
+
+            @media screen and (max-width: 520px) {
+                width: 250px;
+                height: 250px;
+            }
+
+            img {
+                object-fit: contain;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}

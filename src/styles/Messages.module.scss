@@ -1,0 +1,32 @@
+@import './color.scss';
+
+.messages{
+    background-color: $page_bg;
+    min-height: 100vh;
+}
+
+.desktopMessageBox,
+.mobileMessageBox {
+    max-height: 86vh;
+    margin-left: 1rem;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    gap: 1rem;
+    padding-top: 2rem;
+
+    @media screen and (max-width: 900px) {
+        margin-left: 0;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: inherit;
+        min-height: 100vh;
+        padding-top: 0;
+    }
+
+    .border {
+        background-color: $border-color;
+        width: 2px;
+        min-height: 100vh;
+    }
+}

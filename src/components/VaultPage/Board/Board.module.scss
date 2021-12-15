@@ -1,0 +1,27 @@
+@import '../../../styles/color.scss';
+
+.board{
+    width: 100%;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 1rem 1.5rem;
+
+    h4{
+        margin-bottom: .7rem;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: rgba(0, 0, 0, 0.87);
+    }
+
+    .banner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F3F3F3;
+        border-radius: 12px;
+        height: 200px;
+        margin-bottom: .2rem;
+    }
+}

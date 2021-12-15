@@ -1,0 +1,131 @@
+.mailList {
+    width: 100%;
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem 8rem;
+
+    @media screen and (max-width: 960px) {
+        padding: 2rem 1rem 8rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 2rem 0 8rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 2rem 0 8rem;
+    }
+
+    .card {
+        position: relative;
+        height: 25rem;
+        width: 100%;
+        background-image: linear-gradient(45deg, #84B9D1, #D2B4FC);
+        border-radius: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media screen and (max-width: 500px) {
+            justify-content: end;
+            padding-bottom: 3rem;
+
+        }
+
+        h5 {
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.5;
+
+            span {
+                font-weight: 700;
+                color: white;
+                text-decoration: underline;
+            }
+
+            @media screen and (max-width: 500px) {
+                font-size: 16px;
+                margin-top: 1rem;
+            }
+        }
+
+        p {
+            margin: .5rem 0 1rem;
+            font-weight: 500;
+            font-size: 1rem;
+            text-align: center;
+
+            @media screen and (max-width: 500px) {
+                font-size: 12px;
+
+            }
+        }
+
+        .formDiv {
+            display: flex;
+            margin-top: 1rem;
+            gap: 1rem;
+            // align-items: center;
+
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                margin-top: 2rem;
+            }
+
+            form {
+                display: flex;
+                gap: 1rem;
+                margin: 0 auto;
+
+                input {
+                    background: #121212;
+                    border-radius: 24px;
+                    padding: 1rem 1rem;
+                    color: white;
+                    font-weight: 700;
+                    width: 315px;
+
+                    @media screen and (max-width: 500px) {
+                        text-align: center;
+                    }
+                }
+
+                button {
+                    background: #121212;
+                    border-radius: 24px;
+                    padding: 1rem 2rem;
+                    color: white;
+                    font-weight: 700;
+                    cursor: pointer;
+
+                    span {
+                        background: linear-gradient(105.14deg, #84B9D1, #D2B4FC);
+                        background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+            }
+        }
+
+
+
+        .mailmark {
+            position: absolute;
+            top: 4%;
+            right: 2%;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            @media screen and (max-width: 500px) {
+                height: 20%;
+            }
+        }
+    }
+}

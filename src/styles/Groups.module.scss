@@ -1,0 +1,43 @@
+@import './color.scss';
+
+.groups {
+    background-color: $page_bg;
+    min-height: 100vh;
+}
+
+.groupSection {
+    fleX: 1;
+    margin: 2rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+
+    @media screen and (max-width: 1200px) {
+        margin: 0 1rem 1rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    @media screen and (max-width: 520px) {
+        margin: 0 .5rem 1rem;
+    }
+
+    .cardGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        place-items: center;
+
+        @media screen and (max-width: 900px) {
+            grid-template-columns: 1fr;
+        }
+
+        @media screen and (max-width: 763px) {
+            row-gap: 1rem;
+        }
+    }
+}

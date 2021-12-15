@@ -1,0 +1,81 @@
+@import "../../../styles/color.scss";
+
+.groupCategoryMenu,
+.groupMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.3rem 1.2rem;
+  border-radius: 12px;
+
+  @media screen and (max-width: 650px) {
+    padding: 0 1rem;
+  }
+
+  @media screen and (max-width: 599px) {
+    background-color: transparent;
+  }
+
+  .categoryList {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    @media screen and (max-width: 650px) {
+      font-size: 0.8rem;
+    }
+
+    .mobileItem {
+      color: rgba(0, 0, 0, 0.37);
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      @media screen and (max-width: 599px) {
+        display: none;
+      }
+    }
+
+    .typesBtn {
+      font-size: 0.8rem;
+    }
+
+    .selected {
+      background-color: #eef2f4;
+      padding: 0.6rem 1.5rem;
+      border-radius: 10px;
+      color: black;
+      font-weight: 500;
+
+      @media screen and (max-width: 599px) {
+        background-color: #FFF;
+      }
+    }
+  }
+}
+
+.groupCategoryMenu {
+  @media screen and (max-width: 900px) {
+    margin: 0 -1rem 0;
+    border-radius: 0;
+  }
+
+  @media screen and (max-width: 599px) {
+    margin: .5rem 0 0;
+  }
+}
+
+.groupMenu {
+  @media screen and (max-width: 900px) {
+    margin: 0 1rem;
+  }
+
+  .categoryList {
+    @media screen and (max-width: 400px) {
+      gap: 0.5rem;
+    }
+  }
+}

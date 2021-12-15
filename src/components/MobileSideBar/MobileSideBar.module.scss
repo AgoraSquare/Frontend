@@ -1,0 +1,122 @@
+.mobileSideBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    width: 0;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: #EEF2F4;
+        padding: .5rem 1rem 2rem;
+
+        .closeIcon {
+            align-self: flex-end;
+
+            i {
+                color: #0000005E;
+                font-size: 1.2rem;
+                font-weight: 700;
+                cursor: pointer;
+            }
+        }
+
+        .profilePart {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            img {
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .textPart {
+                flex: 1;
+
+                .name {
+                    font-weight: 500;
+                }
+
+                .userName {
+                    color: #0000005E;
+                }
+            }
+
+            i {
+                font-size: 1.4rem;
+                color: #0000005E;
+                cursor: pointer;
+                font-weight: 700;
+            }
+        }
+
+        .walletPart {
+            padding: .2rem .7rem;
+            border-radius: 8px;
+            background-color: #FFF;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: .5rem;
+            overflow: hidden;
+
+            i {
+                color: #0000005E;
+                font-size: 1.4rem;
+            }
+
+
+            span {
+                color: #00000099;
+                font-size: .75rem;
+            }
+        }
+    }
+
+    .menu {
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .menuItems {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            color: #0000005E;
+
+            i {
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            span {
+                font-size: .9rem;
+            }
+        }
+    }
+}
+
+.show {
+    width: 350px;
+
+    @media screen and (max-width: 520px) {
+        width: 240px;
+    }
+}
+
+.overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: rgba(0,0,0,0.5);
+}

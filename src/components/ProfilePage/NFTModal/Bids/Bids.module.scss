@@ -1,0 +1,72 @@
+.bids {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: scroll;
+    max-height: 11rem;
+
+    @media screen and (max-width: 900px) {
+        max-height: unset;
+        overflow: none;
+    }
+
+    &::-webkit-scrollbar{
+        width: 0;
+        background-color: transparent;
+    }
+}
+
+.bid {
+    display: flex;
+    align-items: center;
+
+    .bidInfo {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        flex: 1;
+
+        .circle {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #FFDFC5;
+            border-radius: 50%;
+
+            @media screen and (max-width: 900px) {
+                height: 1.9rem;
+                width: 1.9rem;
+            }
+        }
+
+        .bidName{
+            h5{
+                color: #8E8E93;
+                font-weight: normal;
+                font-size: .87rem;
+
+                @media screen and (max-width: 900px) {
+                    font-size: .75rem;
+                }
+            }
+
+            strong{
+                font-size: .88rem;
+                font-family: 'Lato',sans-serif;
+
+                @media screen and (max-width: 900px) {
+                    font-size: .79rem;
+                }
+            }
+        }
+    }
+
+    .whoPlaced{
+        color: #AEAEB2;
+        font-weight: 600;
+        font-size: .87rem;
+
+        @media screen and (max-width: 900px) {
+            font-size: .8rem;
+        }
+    }
+}

@@ -1,0 +1,135 @@
+@import '../../../styles/color.scss';
+
+$header_font_size: 1.4rem;
+
+.footer {
+    background-color: #1c1c1c;
+    padding: 3rem 12rem;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1499px) {
+        padding: 3rem 7rem;
+    }
+
+    @media screen and (max-width: 1280px) {
+        padding: 3rem 4rem;
+    }
+
+    @media screen and (max-width: 1099px) {
+        padding: 3rem 6rem 1rem;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    @media screen and (max-width: 980px) {
+        padding: 3rem 2rem 1rem;
+    }
+
+    @media screen and (max-width: 410px) {
+        padding: 3rem 1rem 1rem;
+    }
+
+    .logoSection {
+        @media screen and (max-width: 1099px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            height: 60px;
+        }
+
+        p {
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            color: rgba(#fff, 0.37);
+        }
+    }
+
+    .options {
+        display: flex;
+        gap: 8rem;
+
+        @media screen and (max-width: 1280px) {
+            gap: 3rem;
+        }
+
+        @media screen and (max-width: 1099px) {
+            gap: 5rem;
+        }
+
+        @media screen and (max-width: 780px) {
+            gap: 2rem;
+        }
+
+        .col {
+            h4 {
+                font-size: 1rem;
+                margin-bottom: .7rem;
+                font-weight: 600;
+                color: rgba(#fff, 0.6);
+
+                @media screen and (max-width: 780px) {
+                    font-size: 1.2rem;
+                }
+
+                @media screen and (max-width: 780px) {
+                    font-size: .9rem;
+                }
+            }
+
+            p {
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: 1.6;
+                color: rgba(#fff, 0.37);
+
+                @media screen and (max-width: 780px) {
+                    font-size: 1rem;
+                }
+
+                @media screen and (max-width: 780px) {
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+
+    .socials {
+        h4 {
+            font-size: 1rem;
+            margin-bottom: .7rem;
+            font-weight: 600;
+            color: rgba(#fff, 0.6);
+
+            @media screen and (max-width: 780px) {
+                font-size: 1.2rem;
+            }
+
+            @media screen and (max-width: 780px) {
+                font-size: .9rem;
+            }
+        }
+
+
+        .socialIcons {
+            display: grid;
+            grid-template-columns: 32px 32px;
+            grid-row: auto auto;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            gap: 0.5rem;
+
+            img {
+                align-self: center;
+                justify-self: center;
+            }
+        }
+    }
+}

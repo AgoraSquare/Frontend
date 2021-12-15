@@ -1,0 +1,64 @@
+@import '../../../styles/color.scss';
+
+.profilesYouMayLike{
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    font-weight: 500;
+
+    .heading{
+        font-weight: 500;
+    }
+
+    .profilesList{
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+    
+        li {
+            display: flex;
+            align-items: center;
+            color: $grey-text;
+            font-weight: 700;
+    
+            .avatarSection {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                flex: 1;
+
+                .nameContainer{
+                    h5{
+                        font-size: .9rem;
+                    }
+
+                    small{
+                        color: #0000005E;
+                        font-style: italic;
+                        font-weight: 500;
+                    }
+                }
+    
+                .avatar {
+                    // width: 2rem;
+                    // height: 2rem;
+                    background-color: #C4C4C4;
+                    border-radius: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .followBtn {
+                cursor: pointer;
+                font-size: .8rem;
+                color: #003461;
+                font-weight: 500;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}

@@ -1,0 +1,140 @@
+@import '../../../styles/color.scss';
+
+// $onScrollTextColor: $grey-text;
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0 5rem 0.5rem;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all .5s;
+    background: rgba(#121212, 0.01);
+    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    @media screen and (max-width: 1400px) {
+        padding: 0 .5rem 8rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+        padding: 0 .2rem 2rem;
+    }
+
+    @media screen and (max-width: 520px) {
+        padding: 0 .8rem .4rem .8rem;
+    }
+
+    .logo {
+        flex: 1;
+
+        .logobg {
+            padding: 1.5rem 1.2rem;
+            background: #1c1c1c;
+            width: min-content;
+            border-radius: 0 0 18px 18px;
+        }
+    }
+
+    .menu_links {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        font-size: .9rem;
+
+        @media screen and (max-width: 980px) {
+            gap: 3rem;
+        }
+
+        @media screen and (max-width: 780px) {
+            gap: 1.5rem;
+        }
+
+        @media screen and (max-width: 650px) {
+            gap: 0rem;
+        }
+
+        .link {
+            color: #fff;
+            cursor: pointer;
+            // letter-spacing: .15rem;
+            font-size: 1rem;
+            font-weight: 500;
+
+            @media screen and (max-width: 650px) {
+                // display: none;
+                font-size: 0.8rem;
+                margin-right: 10%;
+            }
+        }
+
+        .login_link {
+            color: #FFF;
+            cursor: pointer;
+
+            @media screen and (max-width: 650px) {
+                display: none;
+            }
+        }
+
+        .betaBtn {
+            color: #fff;
+            border: 1.5px none;
+            font-size: .875rem;
+            border-radius: 12px;
+            font-weight: 600;
+            height: 42px;
+            cursor: pointer;
+            transition: color .5s ease-in;
+
+            background-color: #84B9D1;
+            background-image: linear-gradient(45deg, #84B9D1, #66023C);
+            background-size: 100%;
+
+            strong {
+                font-size: 0.5rem;
+                margin-left: 1rem;
+                color: #84B9D1;
+            }
+
+            @media screen and (max-width: 520px) {
+                font-size: .7rem;
+            }
+        }
+
+        .fillBtn {
+            color: #fff;
+        }
+
+        .mobile_menu {
+            display: none;
+
+            @media screen and (max-width: 650px) {
+                display: inline-block;
+            }
+        }
+
+        .onScroll {
+            stroke: #7D7987;
+        }
+
+        .iconBtn {
+            position: relative;
+            display: none;
+
+            @media screen and (max-width: 650px) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.colorChange {
+    background: none;
+    // background-color: #121212;
+    // box-shadow: 1px 4px 5px -2px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}

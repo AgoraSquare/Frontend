@@ -1,0 +1,122 @@
+@import '../../styles/color.scss';
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: .6rem 12rem;
+    background-color: #FFF;
+    box-shadow: 1px 1px 2px -2px rgba(197, 197, 197, 1);
+    position: relative;
+
+    @media screen and (max-width: 1650px) {
+        padding: .4rem 4rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: .4rem 2rem;
+    }
+
+    @media screen and (max-width: 520px) {
+        gap: 1.2rem;
+        padding: .4rem 1rem;
+    }
+
+    .mobileProfile{
+        @media screen and (min-width: 901px) {
+            display: none;
+        }
+
+        img{
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .logo {
+        // flex: .2;
+        display: flex;
+        justify-content: center;
+
+        @media screen and (max-width: 900px) {
+            flex: 1;
+        }
+
+        img{
+            @media screen and (max-width: 520px) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    .searchBar {
+        background-color: #EEF2F4;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        padding-right: .7rem;
+        width: 100%;
+        flex: .6;
+        max-width: 820px;
+        margin: 0 auto;
+
+        input {
+            background-color: transparent;
+            color: #00000099;
+            padding-left: 1rem;
+            height: 50px;
+            flex: 1;
+        }
+
+        i{
+            color: #00000099;
+        }
+
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+    }
+
+    .desktopContainer{
+        flex: .15;
+        gap: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: 900px) {
+            flex: 0;
+        }
+
+        .notificationIcon{
+            margin-top: .25rem;
+            cursor: pointer;
+        }
+
+        .profile{
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            cursor: pointer;
+
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
+
+            img{
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span{
+                font-weight: 400;
+                letter-spacing: 1.2px;
+                font-size: .8rem;
+            }
+        }
+    }
+}

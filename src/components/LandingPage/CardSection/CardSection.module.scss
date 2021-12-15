@@ -1,0 +1,137 @@
+@import '../../../styles/color.scss';
+
+.cardSection {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 10rem;
+    align-items: center;
+    gap: 5rem;
+    background-color: #1c1c1c;
+
+    @media screen and (max-width: 980px) {
+        padding: 4rem 4rem;
+    }
+
+    @media screen and (max-width: 800px) {
+        padding: 3rem 2rem;
+        gap: 3rem;
+    }
+
+    @media screen and (max-width: 520px) {
+        gap: 2rem;
+    }
+
+    header {
+        text-align: center;
+        position: relative;
+
+        h2 {
+            font-weight: 700;
+            font-size: 2.25rem;
+            margin-bottom: 2rem;
+            color: rgba(#fff, 0.87);
+
+            @media screen and (max-width: 699px) {
+                font-size: 1.4rem;
+
+            }
+
+            @media screen and (max-width: 520px) {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            strong {
+                font-weight: 500;
+            }
+        }
+
+        p {
+            max-width: 100ch;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 400;
+            text-align: center;
+            color: rgba(#fff, 0.6);
+
+            @media screen and (max-width: 520px) {
+                font-size: .88rem;
+            }
+        }
+    }
+
+    .cardGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+
+        @media screen and (max-width: 650px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.card {
+    background-color: #131313;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    max-width: 500px;
+    min-width: 200px;
+    padding: 2rem;
+
+    .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        gap: 1rem;
+
+        img {
+            width: 48px;
+            height: 48px;
+
+            @media screen and (max-width: 520px) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        h2 {
+            font-weight: 400;
+            max-width: 15ch;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 24px;
+
+            background-color: #84B9D1;
+            background-image: linear-gradient(45deg, #84B9D1, #D2B4FC);
+            background-size: 100%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            @media screen and (max-width: 968px) {
+                font-size: 1.1rem;
+            }
+
+            @media screen and (max-width: 520px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        padding: 1.5rem;
+    }
+
+
+
+    p {
+        color: rgba(#fff, 0.6);
+        line-height: 1.9;
+        font-size: .9rem;
+
+        @media screen and (max-width: 520px) {
+            font-size: .8rem;
+        }
+    }
+}

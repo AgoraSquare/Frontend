@@ -1,0 +1,83 @@
+@import '../../../styles/color.scss';
+
+.trendingProposals{
+    border-radius: $card_br_low;
+    padding: 1.5rem;
+    flex: .3;
+    height: max-content;
+    background-color: #FFF;
+
+    h3 {
+        color:rgba(2, 2, 2, 1);
+        font-weight: 700;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .proposalsList{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.proposal{
+    display: flex;
+    gap: 1rem;
+
+    .circle{
+        background: linear-gradient(98.26deg, #84B9D1 3%, #D2B4FC 96.14%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        align-self: center;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    .mainContainer{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+        gap: .4rem;
+
+        .topBar{
+            font-weight: 600;
+            font-size: .84rem;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        .bottomBar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .75rem;
+
+            .time{
+                font-weight: 600;
+                font-size: .7rem;
+                line-height: 16px;
+                color: rgba(0, 0, 0, 0.37);
+            }
+
+            .viewProposalBtn{
+                cursor: pointer;
+                padding: 0;
+                font-weight: 500;
+                font-size: .75rem;
+                text-transform: uppercase;
+                color: #84B9D1;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
