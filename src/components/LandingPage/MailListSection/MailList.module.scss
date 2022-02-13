@@ -1,7 +1,7 @@
 .mailList {
     width: 100%;
     display: flex;
-    max-width: 80%;
+    max-width: 72rem;
     margin: auto;
     flex-direction: column;
     align-items: center;
@@ -12,11 +12,11 @@
     }
 
     @media screen and (max-width: 600px) {
-        padding: 2rem 0 8rem;
+        padding: 2rem 0.4 8rem;
     }
 
     @media screen and (max-width: 500px) {
-        padding: 2rem 0 8rem;
+        padding: 2rem 0.4rem 8rem;
     }
 
     .card {
@@ -28,6 +28,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
 
         @media screen and (max-width: 500px) {
             justify-content: end;
@@ -68,64 +69,76 @@
         .formDiv {
             display: flex;
             margin-top: 1rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
             gap: 1rem;
-            // align-items: center;
 
             @media screen and (max-width: 500px) {
                 flex-direction: column;
                 margin-top: 2rem;
             }
 
-            form {
-                display: flex;
-                gap: 1rem;
-                margin: 0 auto;
+            // form {
+            //     display: flex;
+            //     gap: 1rem;
+            //     margin: 0 1rem;
+            //     align-items: center;
 
-                input {
-                    background: #121212;
-                    border-radius: 24px;
-                    padding: 1rem 1rem;
-                    color: white;
-                    font-weight: 700;
-                    width: 315px;
+            //     // input {
+            //     //     background: #121212;
+            //     //     border-radius: 24px;
+            //     //     padding: 1rem 1rem;
+            //     //     color: white;
+            //     //     font-weight: 700;
+            //     //     max-width: 315px;
+            //     //     width: 805;
 
-                    @media screen and (max-width: 500px) {
-                        text-align: center;
-                    }
-                }
+            //     //     @media screen and (max-width: 500px) {
+            //     //         text-align: center;
+            //     //     }
+            //     // }
 
-                button {
-                    background: #121212;
-                    border-radius: 24px;
-                    padding: 1rem 2rem;
-                    color: white;
-                    font-weight: 700;
-                    cursor: pointer;
+            //     button {
+            //         background: #121212;
+            //         border-radius: 24px;
+            //         padding: 1rem 2rem;
+            //         color: white;
+            //         font-weight: 700;
+            //         cursor: pointer;
 
-                    span {
-                        background: linear-gradient(105.14deg, #84B9D1, #D2B4FC);
-                        background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                    }
-                }
-            }
+            //         span {
+            //             background: linear-gradient(105.14deg, #84B9D1, #D2B4FC);
+            //             background-clip: text;
+            //             -webkit-text-fill-color: transparent;
+            //         }
+            //     }
+
+            //     @media screen and (max-width: 500px) {
+            //         flex-direction: column;
+    
+            //     }
+            // }
+
+            
         }
 
 
 
-        .mailmark {
-            position: absolute;
-            top: 4%;
-            right: 2%;
+        // .mailmark {
+        //     position: absolute;
+        //     top: 4%;
+        //     right: 2%;
 
-            img {
-                width: 100%;
-                height: 100%;
-            }
+        //     img {
+        //         width: 100%;
+        //         height: 100%;
+        //     }
 
-            @media screen and (max-width: 500px) {
-                height: 20%;
-            }
-        }
+        //     @media screen and (max-width: 500px) {
+        //         height: 20%;
+        //     }
+        // }
     }
 }

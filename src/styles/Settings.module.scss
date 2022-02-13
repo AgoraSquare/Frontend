@@ -1,24 +1,24 @@
 @import './color.scss';
 
-.settings {
-    background-color: $page_bg;
-    min-height: 100vh;
+// .settings {
+//     background-color: $page_bg;
+//     min-height: 100vh;
 
-    .settingSection{
-        margin: 2rem 1rem 0;
-        background-color: #FFF;
-        border-radius: 12px; 
-        display: flex;
-        height: min-content;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
+    // .settingSection{
+    //     margin: 2rem 1rem 0;
+    //     background-color: #FFF;
+    //     border-radius: 12px; 
+    //     display: flex;
+    //     height: min-content;
+    //     flex-direction: column;
+    //     gap: 1rem;
+    //     width: 100%;
 
-        @media screen and (max-width: 900px) {
-            margin: 0;
-            flex: 1;
-            background-color: $page_bg;
-        }
+        // @media screen and (max-width: 900px) {
+        //     margin: 0;
+        //     flex: 1;
+        //     background-color: $page_bg;
+        // }
 
         .settingsContainer{
             padding: 2rem;
@@ -27,5 +27,5 @@
                 padding: 1.5rem 0 1.5rem;
             }
         }
-    }
-}
+    // }
+// }

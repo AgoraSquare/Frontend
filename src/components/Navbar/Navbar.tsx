@@ -9,7 +9,7 @@ export default function Navbar() {
     const [flag] = useResize(900);
 
     return (
-        <div className={styles.navbar}>
+        <div className="flex items-center uppercase sticky justify-evenly top-0 z-50 transition-all duration-500 bg-[#212427] py-3">
             {flag && <MobileSideBar show={showMobileSideBar} setShow={setShowMobileSideBar} />}
             {flag && <div className={styles.mobileProfile} onClick={() => {
                 document.body.style.overflow = "hidden";
@@ -17,25 +17,25 @@ export default function Navbar() {
             }}>
                 <img src="/tp_2.jpg" alt="user profile photo" width={35} height={35} />
             </div>}
-            <div className={styles.logo}>
+            <div className="">
                 <img src="/logo.svg" alt="Agora Logo" width={55} height={55} />
             </div>
 
-            <form className={styles.searchBar}>
-                <input type="text" placeholder="Search" />
-                <i className="ri-search-2-fill ri-xl"></i>
+            <form className="group max-w-lg bg-[#121212] focus:outline-none rounded-[10px] w-full flex items-center px-4 gap-4">
+                <input className="grow h-11 bg-transparent outline-none border-none text-white focus:outline-none focus:border-none" type="text" placeholder="Search" />
+                <i className="ri-search-2-fill ri-xl text-white/60"></i>
             </form>
 
-            <div className={styles.desktopContainer}>
+            <div className="flex items-center justify-center gap-8 ">
                 <Link href="/notifications" passHref>
-                    <div className={styles.notificationIcon}>
-                        <i className="ri-notification-2-fill ri-xl"></i>
+                    <div className="cursor-pointer mt-1">
+                        <i className="ri-notification-2-fill ri-lg text-white/80"></i>
                     </div>
                 </Link>
 
-                <div className={styles.profile}>
-                    <img src="/tp_2.jpg" alt="Profile Photo" width={28} height={28} />
-                    <span>Alex</span>
+                <div className="flex items-center gap-2 ">
+                    <img className='w-[28px] h-[28px] rounded-full object-cover' src="/tp_2.jpg" alt="Profile Photo" width={28} height={28} />
+                    <span className='font-semibold tracking-widest uppercase text-white/80 text-xs'>Alex</span>
                 </div>
             </div>
         </div>

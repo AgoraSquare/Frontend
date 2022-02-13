@@ -6,6 +6,10 @@ import Navbar from "../Navbar/Navbar";
 import styles from './Layout.module.scss';
 import { useEffect } from 'react';
 import BackDrop from "../BackDrop/BackDrop";
+import ProfileCardSection from "../RightSideSection/ProfileCardSection";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import BottomBar from "./BottomBar";
 
 export const HideLeftSideSectionContext = createContext({
     hideLeftSideBar: true,
@@ -17,7 +21,8 @@ export default function Layout({ children, hideLeftSide, hideNavbar }: { childre
     const [flag] = useResize(900);
     const [hideLeftSideBar, setHideLeftSideBar] = useState(false);
     const [showPostSection, setShowPostSection] = useState(false);
-    console.log("Layout Component Rendered");
+    const [postCreated, setPostCreated] = useState(0);
+    // console.log("Layout Component Rendered");
 
     useEffect(() => {
         const checkResolution = () => {
@@ -30,33 +35,42 @@ export default function Layout({ children, hideLeftSide, hideNavbar }: { childre
         return () => window.removeEventListener('resize', checkResolution);
     }, []);
 
+    const route = useRouter();
+
     return (
-        <div className={styles.layout}>
-            {hideNavbar ? (!flag && <Navbar />) : <Navbar />}
-            {flag ?
+        <div className="flex flex-col min-h-screen relative bg-[#0A0A0A] ">
+            {/* {hideNavbar ? (!flag && <Navbar />) : <Navbar />} */}
+            {/* {flag ?
                 showPostSection && <div className={styles.mobile_only}>
-                    <NewPostSection showPostSection={showPostSection} setShowPostSection={setShowPostSection} />
+                    <NewPostSection showPostSection={showPostSection} setShowPostSection={setShowPostSection} setPostCreated={setPostCreated} />
                 </div> :
                 <>
                     {showPostSection && <BackDrop onClick={() => {
                         setShowPostSection(false);
                     }}>
-                        <div className={styles.modal}>
-                            <NewPostSection showPostSection={showPostSection} setShowPostSection={setShowPostSection} />
+                        <div className=" max-w-3xl w-full">
+                            <NewPostSection showPostSection={showPostSection} setShowPostSection={setShowPostSection} setPostCreated={setPostCreated} />
                         </div>
                     </BackDrop>}
                 </>
-            }
+            } */}
 
-            <main className={styles.layoutMain}>
+            <main className="flex w-full max-w-7xl flex-1 mx-auto flex-col sm:flex-row justify-between">
+                <div className="w-full flex flex-col sm:hidden sticky -top-[0.1px] bg-[#0a0a0a] z-10">
+                    <ProfileCardSection />
+                </div>
                 {!hideLeftSide && !hideLeftSideBar && <LeftSideSection setShowPostSection={setShowPostSection} />}
-                <div className={styles.border} />
-                <div className={styles.children_container}>
+                {/* <div className="sticky top-8 w-[1px] bg-[#ffffff1F] hidden md:block " /> */}
+                <div className="w-full mx-auto flex">
                     <HideLeftSideSectionContext.Provider value={{ hideLeftSideBar, setHideLeftSideBar }}>
                         {children}
                     </HideLeftSideSectionContext.Provider>
                 </div>
+
             </main>
+
+            <BottomBar />
+            
         </div>
     )
 }

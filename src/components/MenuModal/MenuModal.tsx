@@ -15,11 +15,16 @@ const theme = createTheme({
     },
     typography: {
         fontSize: 12
+    },
+    palette: {
+        primary: {
+            main: '#121212'
+        }
     }
 })
 
 function MenuModal({ children, anchorEl, handleClose }: MenuModalProps) {
-    console.log("Menu Modal");
+    // console.log("Menu Modal");
 
     return (
         <ThemeProvider theme={theme}>

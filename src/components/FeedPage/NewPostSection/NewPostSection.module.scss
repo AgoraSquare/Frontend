@@ -1,5 +1,45 @@
 @import '../../../styles/color.scss';
 
+.msg_box {
+    margin-bottom: 1.5rem;
+    color: white;
+
+    & *,
+    & *::before,
+    & *::after,
+    &:hover *,
+    &:hover *::after,
+    &:hover *::before {
+        border: none;
+    }
+}
+
+.postBtn,
+.mobilePostBtn {
+        font-weight: 700;
+        cursor: pointer;
+
+        @media screen and (max-width: 520px) {
+            font-size: .8rem;
+        }
+
+        @media screen and (max-width: 400px) {
+            width: 85px;
+        }
+    }
+
+    .increaseBrightness {
+        color: #FFF !important;
+        border-color: white !important;
+        background-size: 120%;
+        transition: all .4s ease-in-out;
+        font-weight: 600;
+
+        &:hover {
+            background-position: 100% 0;
+        }
+    }
+
 .newPostSection {
     display: flex;
     flex-direction: column;
@@ -15,37 +55,6 @@
         inset: 0;
         z-index: 10001;
         padding: 0;
-    }
-
-    .postBtn,
-    .mobilePostBtn {
-        font-weight: 700;
-        padding: .2rem 1.2rem;
-        width: 100px;
-        cursor: pointer;
-        border-radius: 10px;
-        font-size: .9rem;
-
-        @media screen and (max-width: 520px) {
-            font-size: .8rem;
-        }
-
-        @media screen and (max-width: 400px) {
-            width: 85px;
-        }
-    }
-
-    .increaseBrightness {
-        color: #FFF;
-        border: none;
-        background-image: $gradient;
-        background-size: 120%;
-        transition: all .4s ease-in-out;
-        font-weight: 600;
-
-        &:hover {
-            background-position: 100% 0;
-        }
     }
 
     .mobile_TopBar {
@@ -124,19 +133,7 @@
             flex-direction: column;
             gap: 1rem;
 
-            .msg_box {
-                margin-bottom: 1.5rem;
-
-                & *,
-                & *::before,
-                & *::after,
-                &:hover *,
-                &:hover *::after,
-                &:hover *::before {
-                    border: none;
-                }
-            }
-
+            
             .uploadedImagesGrid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
@@ -234,7 +231,7 @@
                 }
 
                 li {
-                    position: relative;
+                    // position: relative;
 
                     .btnOption {
                         @media screen and (max-width: 520px) {
@@ -243,8 +240,8 @@
                     }
 
                     .emojiPicker {
-                        position: absolute;
-                        top: 3rem;
+                        position: relative;
+                        top: 10rem;
                     }
                 }
             }
@@ -252,6 +249,7 @@
             .postBtn {
                 min-width: max-content;
                 border-radius: 8px;
+                color: white;
 
                 @media screen and (max-width: 900px) {
                     display: none;

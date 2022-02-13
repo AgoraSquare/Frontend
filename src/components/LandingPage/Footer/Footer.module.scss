@@ -4,9 +4,11 @@ $header_font_size: 1.4rem;
 
 .footer {
     background-color: #1c1c1c;
-    padding: 3rem 12rem;
+    padding: 2rem 1rem;
     color: #000;
     display: flex;
+    max-width: 72rem;
+    margin: 0 auto;
     align-items: center;
     justify-content: space-between;
 
@@ -34,6 +36,9 @@ $header_font_size: 1.4rem;
     }
 
     .logoSection {
+        // display: flex;
+        // align-items: center;
+        // gap: 1rem;
         @media screen and (max-width: 1099px) {
             display: flex;
             flex-direction: column;
@@ -41,20 +46,22 @@ $header_font_size: 1.4rem;
         }
 
         img {
-            height: 60px;
+            // height: 60px;
         }
 
         p {
             font-size: 0.875rem;
             font-weight: 500;
-            margin-top: 1rem;
+            margin-top: .5rem;
             color: rgba(#fff, 0.37);
         }
     }
 
     .options {
         display: flex;
-        gap: 8rem;
+        gap: 4rem;
+        align-items: center;
+        
 
         @media screen and (max-width: 1280px) {
             gap: 3rem;

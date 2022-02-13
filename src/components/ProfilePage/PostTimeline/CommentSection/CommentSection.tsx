@@ -3,15 +3,52 @@ import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import MenuModal from '../../../MenuModal/MenuModal';
 import styles from './CommentSection.module.scss';
+import { useMutation, gql } from '@apollo/client';
+import { RootState } from '../../../../store';
+import { useSelector } from 'react-redux';
 
-export default function CommentSection() {
+const ADD_COMMENT = gql`
+    mutation CommentPost($postId: ID!, $commentBody: String!) {
+        commentPost(postId: $postId, commentBody: $commentBody) {
+            id
+            comments {
+                username
+                name
+                body
+                timestamp
+            }
+        }
+    }
+`;
+
+export default function CommentSection({data}: {data: any}) {
     console.log("CommentSection Rendered");
+
+    const [commentBody, setCommentBody] = useState('');
+
+    const token = useSelector((state: RootState) => state.auth.token);
+    const [ commentPost, { data: commentPostData, loading: commentPostLoading, error: commentPostError }] = useMutation(ADD_COMMENT, {
+        context: {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        }
+    });
+
+    const handleComment = () => {
+        if (commentBody !== '') {
+            commentPost({ variables: { postId: data.id, commentBody: commentBody } })
+                .catch(err => console.log(err));
+            setCommentBody('');
+        }
+    }
+    
     return (
         <div className={`${styles.commentSection}`}>
             <div className={styles.addComment}>
                 <div className={styles.topSection}>
                     <img src="/daniel.webp" alt="profile photo" className={styles.profilePhoto} />
-                    <TextField multiline fullWidth placeholder="comment something awesome!" className={styles.msg_box}
+                    <TextField multiline fullWidth placeholder="comment something awesome!" className={styles.msg_box} onChange={(e) => setCommentBody(e.target.value)} 
                         InputProps={
                             {
                                 className: styles.fontSizeMobile
@@ -23,14 +60,14 @@ export default function CommentSection() {
                     <IconButton className={styles.addImage}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z" /><path d="M5 11.1l2-2 5.5 5.5 3.5-3.5 3 3V5H5v6.1zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm11.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="rgba(0,52,97,1)" /></svg>
                     </IconButton>
-                    <Button variant="contained" className={styles.replyBtn}>Reply</Button>
+                    <Button onClick={handleComment} variant="contained" className={styles.replyBtn}>Reply</Button>
                 </div>
             </div>
 
             <ul className={styles.commentList}>
-                {Array(2).fill(0).map(() => (
+                {data?.comments.map((comment: any) => (
                     <li key={uuid()}>
-                        <Comment />
+                        <Comment data={comment} />
                     </li>
                 ))}
             </ul>
@@ -38,9 +75,11 @@ export default function CommentSection() {
     )
 }
 
-const Comment = () => {
+
+
+const Comment = ({data}: {data: any}) => {
     console.log("Comment Rendered");
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [anchorEl, setAnchorEl] = useState<null|HTMLElement>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -50,14 +89,16 @@ const Comment = () => {
         setAnchorEl(null);
     };
 
+    let date = new Date(data?.timestamp!);
+
     return (
-        <div className={styles.comment}>
+        <div className="flex flex-col overflow-hidden transition-all duration-500">
             <div className={styles.topBar}>
                 <section className={styles.profileSection}>
                     <img src="/tp_3.jpg" alt="Profile Photo" />
                     <div className={styles.profileInfo}>
-                        <h4>Brandy Hudson</h4>
-                        <p>@brandyH | 3:30 PM</p>
+                        <h4>{data?.name}</h4>
+                        <p>@{data?.username} | {date.getHours()}:{date.getMinutes()}</p>
                     </div>
                 </section>
 
@@ -90,7 +131,7 @@ const Comment = () => {
 
             <div className={styles.middleBar}>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus perspiciatis eum, ex sint pariatur accusantium rem, repellat ad magni ut velit ea omnis dignissimos at sunt iusto repellendus itaque excepturi?
+                    {data?.body}
                 </p>
             </div>
 

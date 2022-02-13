@@ -1,4 +1,4 @@
-import { Radio, Switch } from '@material-ui/core';
+import { Switch } from '@material-ui/core';
 import styles from './Preferences.module.scss';
 
 export default function Preferences() {
@@ -32,18 +32,18 @@ export default function Preferences() {
 
                     <ul className={styles.options}>
                         <li>
-                            <Radio />
-                            <span>English</span>
+                            <input type="radio" name="rad" value="English" />
+                            <span>&nbsp;&nbsp;English</span>
                         </li>
 
                         <li>
-                            <Radio />
-                            <span>Espanol</span>
+                            <input type="radio" name="rad" value="Espanol" />
+                            <span>&nbsp;&nbsp;Espanol</span>
                         </li>
 
                         <li>
-                            <Radio />
-                            <span>French</span>
+                            <input type="radio" name="rad" value="French" />
+                            <span>&nbsp;&nbsp;French</span>
                         </li>
                     </ul>
                 </div>

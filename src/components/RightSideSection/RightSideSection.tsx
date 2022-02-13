@@ -3,7 +3,7 @@ import ProfilesYouMayLike from './ProfilesYouMayLike/ProfilesYouMayLike';
 
 export default function RightSideSection() {
     return (
-        <div className={styles.rightSideSection}>
+        <div className="flex flex-col max-w-sm w-full px-5">
             <ProfilesYouMayLike />
             <TrendingPages />
         </div>

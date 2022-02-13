@@ -1,35 +1,35 @@
 @import '../../../styles/color.scss';
 
-.menu {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    background-color: #FFF;
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
+// .menu {
+//     display: flex;
+//     align-items: center;
+//     gap: 2rem;
+//     background-color: #FFF;
+//     padding: 1rem 1.5rem;
+//     border-radius: 12px;
 
-    @media screen and (max-width: 900px) {
-        margin: 0;
-        border-radius: 0;
-    }
+//     @media screen and (max-width: 900px) {
+//         margin: 0;
+//         border-radius: 0;
+//     }
 
-    @media screen and (max-width: 720px) {
-        gap: .5rem;
-    }
+//     @media screen and (max-width: 720px) {
+//         gap: .5rem;
+//     }
 
-    @media screen and (max-width: 520px) {
-        padding: .5rem 1rem;
-        gap: 0;
-        justify-content: space-between;
-    }
+//     @media screen and (max-width: 520px) {
+//         padding: .5rem 1rem;
+//         gap: 0;
+//         justify-content: space-between;
+//     }
     
-    li {
-        font-weight: 700;
-        cursor: pointer;
-    }
+    // li {
+    //     font-weight: 700;
+    //     cursor: pointer;
+    // }
     
     .btn {
-        color: #A1A1A1;
+        color: #6a6a6a;
         padding: .4rem 1.5rem;
 
         @media screen and (max-width: 520px) {
@@ -55,4 +55,4 @@
         color: rgba(0, 0, 0, 0.87);
         font-weight: 500;
     }
-}
+// }

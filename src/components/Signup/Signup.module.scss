@@ -21,44 +21,6 @@
         padding: 2rem 1rem;
     }
 
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .loginText {
-            font-weight: 700;
-
-            @media screen and (max-width: 1024px) {
-                font-size: 1.5rem;
-            }
-        }
-
-        .signUpText {
-            display: flex;
-            flex-direction: column;
-
-            small {
-                color: #0000005E;
-                font-size: .75rem;
-            }
-
-            a {
-                display: flex;
-                align-items: center;
-                gap: .2rem;
-                cursor: pointer;
-
-                small {
-                    background: linear-gradient(105.14deg, #84B9D1 5.05%, #66023C 119.18%);
-                    background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    font-size: 1.1rem;
-                    font-weight: 700;
-                }
-            }
-        }
-    }
 
     form {
         display: flex;

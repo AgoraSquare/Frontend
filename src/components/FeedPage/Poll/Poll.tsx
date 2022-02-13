@@ -1,6 +1,7 @@
 import { Button, IconButton } from '@material-ui/core';
 import { useState } from 'react';
-import { Dispatch, SetStateAction } from 'react-transition-group/node_modules/@types/react';
+import { Dispatch, SetStateAction } from 'react';
+// import { Dispatch, SetStateAction } from 'react-transition-group/node_modules/@types/react';
 import { v4 as uuid } from 'uuid';
 import styles from './Poll.module.scss';
 

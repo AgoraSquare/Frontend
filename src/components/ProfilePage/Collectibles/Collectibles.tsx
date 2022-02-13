@@ -1,59 +1,172 @@
 import { v4 as uuid } from 'uuid';
 import NFTModal from '../NFTModal/NFTModal';
 import styles from './Collectibles.module.scss';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import useResize from '../../../utils/useResize';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
+import { useEffect } from 'react';
+import { useMutation, gql } from '@apollo/client';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../../store/slices/userSlice';
+import { useRouter } from 'next/router';
 
-export default function Collectibles() {
-    console.log("Collectibles Rendered");
+const UPDATE_PROFILE = gql`
+    mutation UpdateProfile($imgUrl: String!) {
+        updateUserImgUrl(img_url: $imgUrl) {
+            id
+            username
+            name
+            email
+            bio
+            img_url
+            web_url
+            cover_img_url
+            emailVerified
+            walletAddress
+            walletConnected
+            followers
+            following
+            updatedAt
+        }
+    }
+`
+
+const POST_NFT = gql`
+    mutation PostNFT($nftPostInput: NFTPostInput!) {
+        createNFTPost(nftPostInput: $nftPostInput) {
+            id
+            isNFT
+            nft {
+                permalink
+                img_url
+                collection
+                description
+                title
+            }
+        }
+    }
+`
+
+export default function Collectibles({ walletAddress } : { walletAddress: string }) {
+
+    const [nfts, setNfts] = useState([]);
+    const options = { method: 'GET' }
+    const [imgUrl, setImgUrl] = useState('');
+
+    const uWalletAddress  = useSelector((state: RootState) => state.user.walletAddress);
+
+    const token = useSelector((state: RootState) => state.auth.token);
+    const dispatch = useDispatch();
+
+    const [updateProfile, { data, loading, error }] = useMutation(UPDATE_PROFILE, {
+        context: {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        },
+        fetchPolicy: 'network-only'
+    })
+
+    useEffect(() => {
+        if (data) {
+            dispatch(setUser(data.updateUserImgUrl));
+        }
+    }, [data])
+
+
+    useEffect(() => {
+        if (imgUrl !== "") {
+            updateProfile({ variables: { imgUrl } })
+        }
+    },[imgUrl])
+
+    useEffect(() => {
+        fetch(`https://testnets-api.opensea.io/api/v1/assets?owner=${walletAddress}&order_direction=desc&offset=0&limit=20`, options)
+            .then(response => {
+                response.json().then(data => {
+                    console.log(data);
+                    setNfts(data.assets);
+                })
+            })
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }, [walletAddress])
+
+    // console.log("Collectibles Rendered");
     return (
-        <div className={styles.collectibles}>
-            {[1, 2, 3, 4, 5, 6].map(() => (
-                <CollectibleCard key={uuid()} />
+        <div className="grid grid-cols-2 grid-flow-row gap-2 items-center">
+            {nfts.map((nft) => (
+                <CollectibleCard key={uuid()} data={nft} setImgUrl={setImgUrl} owner={ uWalletAddress === walletAddress } />
             ))}
         </div>
     )
 }
 
-const CollectibleCard = () => {
-    console.log("CollectibleCard Rendered");
-    const [showModal, setShowModal] = useState(false);
-    const [flag] = useResize(520);
+const CollectibleCard = ({data, setImgUrl, owner}: {data : any, setImgUrl: Dispatch<SetStateAction<string>>, owner: boolean}) => {
+    // console.log("CollectibleCard Rendered");
+    // const [showModal, setShowModal] = useState(false);
+    // const [flag] = useResize(520);
+
+    const token = useSelector((state: RootState) => state.auth.token);
+
+    const router = useRouter();
+    const [postNFT, { data: postData, loading: postLoading, error: postError }] = useMutation(POST_NFT, {
+        context: {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        }
+    })
+
+    useEffect(() => {
+        if (postData) {
+            router.push(`/posts/${postData.createNFTPost.id}`);
+        }
+    }, [postData])
+
+
+    const handleClick = async () => {
+        postNFT({
+            variables: {
+                nftPostInput: {
+                    body: "",
+                    nftTitle: data.name,
+                    nftDescription: data.description,
+                    nftCollection: data.collection.name,
+                    nftImgUrl: data.image_url,
+                    nftPermalink: data.permalink,
+                }
+            }
+        })
+        .catch(err => console.error(err));
+
+    }
 
     return (
         <>
-            <motion.div whileTap={flag && !showModal ? "bounce" : ""} variants={{
-                bounce: {
-                    scale: .8,
-                    transition: {
-                        duration: .8
+            <div className='group relative w-[100%] h-56 rounded-[12px] border border-[#212427] flex flex-col gap-1 items-center p-1'>
+                <div className='h-[80%] w-full bg-[#212427] rounded-[10px] overflow-hidden relative'>
+                    <img className='w-full h-full object-cover object-center' src={data.image_url} alt="" />
+                    { owner &&
+                    <div onClick={() => setImgUrl(data.image_url)} className='cursor-pointer absolute top-[5%] right-[5%] bg-[#212427] rounded-[8px] transition-all opacity-0 bg-opacity-25 backdrop-blur-lg group-hover:opacity-100 text-xs text-white/60 px-2 py-1'>
+                        Set as profile
+                    </div>
                     }
+                </div>
+                <div className='flex flex-col self-start px-2 h-[20%] justify-evenly'>
+                    <p className='uppercase text-[10px] text-white/30 max-w-full line-clamp-1'>{data.collection.name}</p>
+                    <p className='text-xs text-white/80 max-w-full line-clamp-1'>{data.name}</p>
+                </div>
+                { owner &&
+                <div onClick={handleClick} className='absolute cursor-pointer bottom-2 right-2 p-2 opacity-0 transition-opacity group-hover:opacity-100'>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.8327 9.16602L17.666 2.33268M18.3327 5.66602V1.66602H14.3327M9.16602 1.66602H7.49935C3.33268 1.66602 1.66602 3.33268 1.66602 7.49935V12.4993C1.66602 16.666 3.33268 18.3327 7.49935 18.3327H12.4993C16.666 18.3327 18.3327 16.666 18.3327 12.4993V10.8327" stroke="#6A6A6A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </div>
                 }
-            }} className={styles.collectibleCard}>
-                <AnimatePresence>
-                    {showModal && <NFTModal setShow={setShowModal} />}
-                </AnimatePresence>
-                <div className={styles.collectiblePhoto} onClick={() => {
-                    document.body.style.overflow = "hidden";
-                    setShowModal(true);
-                }}>
-                    <img src="/agoraNFT.png" alt="photo" className={styles.bannerPhoto} />
-                </div>
-
-                <div className={styles.collectibleInfo}>
-                    <div className={styles.likeOption}>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0H24V24H0z"/><path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z" fill="rgba(149,164,166,1)"/></svg>
-                        <span>23</span>
-                    </div>
-
-                    <div className={styles.text}>
-                        <h5 className={styles.collectionName}>Collection Name</h5>
-                        <h5 className={styles.title}>NFT Title</h5>
-                        <p className={styles.lastBid}>Last Bid: 0.05 ETH</p>
-                    </div>
-                </div>
-            </motion.div>
+            </div>
         </>
     )
 }

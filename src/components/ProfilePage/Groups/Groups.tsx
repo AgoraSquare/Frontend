@@ -7,10 +7,11 @@ import Link from 'next/link';
 export default function Groups() {
     console.log("Groups Rendered");
     return (
-        <div className={styles.groups}>
-            {[1, 2, 3, 4].map(() => (
-                <GroupCard key={uuid()} />
-            ))}
+        <div className='w-full max-w-lg flex flex-col relative gap-4 mx-4 mt-8 mb-4'>
+            <img src="/groups_null.png" alt="" />
+            <div className='flex flex-col items-center absolute inset-0 m-auto gap-1'>
+                <h3 className='text-white/60 text-base'>Coming Soon</h3>
+            </div>
         </div>
     )
 }

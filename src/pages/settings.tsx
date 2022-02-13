@@ -6,7 +6,7 @@ import styles from '../styles/Settings.module.scss';
 
 export default function Settings() {
     return (
-        <div className={styles.settings}>
+        <div className="min-h-screen">
             <Layout hideLeftSide={false} hideNavbar={false}>
                 <SettingSection />
             </Layout>
@@ -16,10 +16,10 @@ export default function Settings() {
 
 const SettingSection = () => {
     return (
-        <div className={styles.settingSection}>
-            <div className={styles.settingsContainer}>
+        <div className="w-full max-w-lg flex flex-col relative gap-4 mx-4 mt-10 mb-4">
+            <div className="flex flex-col gap-8 border border-[#212427] px-6 py-8 rounded-xl">
                 <Account />
-                <Divider />
+                {/* <Divider /> */}
                 <Preferences />
             </div>
         </div>

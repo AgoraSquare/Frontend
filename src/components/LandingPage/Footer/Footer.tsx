@@ -1,42 +1,18 @@
 import styles from './Footer.module.scss';
+import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
-            <section className={styles.logoSection}>
-                <img src="/footer_logo.svg" alt="Logo"  />
-                <p>©Agora 2021 <br /> All rights reserved</p>
-            </section>
-
-            <section className={styles.options}>
-                <div className={styles.col}>
-                    <h4>Develop With Us</h4>
-                    <p>Github</p>
-                    <p>Docs</p>
+        
+            <footer className="relative bg-[#1D1D1D] flex flex-col w-full items-center pb-4 pt-20 gap-4">
+                <div className=" absolute bg-[#1D1D1D] top-0 flex flex-col p-4 h-max rounded-full translate-y-[-50%] shadow-stamp">
+                    <img src="/stamp.svg" alt="" />
                 </div>
-
-                <div className={styles.col}>
-                    <h4>Company</h4>
-                    <p>About us</p>
-                    <p>Privacy Policy</p>
-                </div>
-
-                <div className={styles.col}>
-                    <h4>Help</h4>
-                    <p>Contact support</p>
-                    <p>FAQs</p>
-                </div>
-            </section>
-
-            <section className={styles.socials}>
-                <h4>Our Socials</h4>
-                <div className={styles.socialIcons}>
-                    <img src="/twitter.svg" alt="Twitter Icon" width={30} height={30} />
-                    <img src="/linkedin.svg" alt="Linkedin Icon" width={30} height={30} />
-                    <img src="/insta.svg" alt="Instagram Icon" width={30} height={30} />
-                    <img src="/telegram.svg" alt="Telegram Icon" width={30} height={30} />
-                </div>
-            </section>
-        </footer>
+                <Link href="/whitepaper" passHref>
+                    <span className='text-[#fafafa] text-base font-semibold hover:cursor-pointer uppercase'>Whitepaper</span>
+                </Link>
+                <p className='text-sm text-white/40 text-center'>©Agora Square 2021<br />All rights reserved</p>
+            </footer>
+        
     )
 }

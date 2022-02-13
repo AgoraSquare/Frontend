@@ -1,14 +1,28 @@
 .banner {
     display: flex;
     position: relative;
-    height: 90vh;
-    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    top: 0;
+    max-width: 72rem;
+    margin: 0 auto;
+    overflow: visible;
     background-color: #121212;
     padding-top: 2rem;
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 768px) {
         flex-direction: column;
         gap: 0;
+    }
+
+    .contentSec {
+        display: flex;
+        flex-direction: column;
+        flex: 0.5;
+        align-items: center;
+        width: 100%;
+
     }
 
     .content {
@@ -16,10 +30,12 @@
         display: flex;
         flex-direction: column;
         gap: 0.2rem;
-        position: absolute;
+        overflow: visible;
+        // position: absolute;
         margin-bottom: 0.3rem;
-        right: 20%;
-        top: 25%;
+        width: 100%;
+        padding: 5rem;
+        flex: 0.5;
         z-index: 1;
         text-align: center;
         align-items: center;
@@ -170,26 +186,56 @@
 
     .banner_image {
         max-height: 100%;
-        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        overflow: clip;
         transition: all .5s ease-in;
-        height: 80vh;
-        position: absolute;
-        left: 0;
-        font-size: 0;
-        line-height: 0;
+        padding: 2px;
+        // height: 80vh;
+        // position: absolute;
+        flex: 0.5;
         align-self: center;
-        border-radius: 32px;
+        position: relative;
+        // border-radius: 32px;
 
-        @media screen and (max-width: 1200px) {
+        .spotlight {
             position: absolute;
-            top: 0;
-            height: 80vh;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            background-image: radial-gradient( circle, rgba(18, 18, 18, 0.6) 0px, rgba(18, 18, 18, 1)  60% );
+            // background: transparent;
+            // background-image: radial-gradient(#121212 0%, #121212 );
+            // background-image: radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.8) 0%, rgba(80, 80, 80, 0.2) );
+
+            @media screen and (max-width: 1000px) {
+                background-image: radial-gradient( circle, rgba(18, 18, 18, 0.6) 0px, rgba(18, 18, 18, 1)  60% );
+            }
+            
         }
+
+        // @media screen and (max-width: 1200px) {
+        //     top: 0;
+        //     height: 80vh;
+        // }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            // margin: 2px;
+            margin-right: 2px;
+        }
+
+        .lighting {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: rotate(-80deg);
+            
         }
 
         @media screen and (max-width: 700px) {
@@ -212,6 +258,7 @@
         margin-right: auto;
         left: 0;
         right: 0;
+        gap: 1rem;
         z-index: 1;
         display: flex;
         flex-direction: column;
@@ -221,10 +268,34 @@
             width: 100%;
             height: 100%;
         }
+        h6 {
+            background: linear-gradient(105.14deg, #84B9D1, #D2B4FC);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .chevron {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
 
         @media screen and (max-width: 560px) {
-            bottom: 20%;
+            bottom: 0%;
             width: 4rem;
         }
     }
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
 }

@@ -3,6 +3,7 @@
 // $onScrollTextColor: $grey-text;
 
 .navbar {
+
     display: flex;
     align-items: center;
     padding: 0 5rem 0.5rem;
@@ -24,18 +25,82 @@
         padding: 0 .2rem 2rem;
     }
 
-    @media screen and (max-width: 520px) {
-        padding: 0 .8rem .4rem .8rem;
+    @media screen and (max-width: 650px) {
+        padding: 0 ;
+    }
+
+    .menu_modal {
+        background: #000;
+    }
+
+    .pop {
+        position: relative;
+
+        .pop_panel {
+            position: absolute;
+            z-index: 10;
+        }
+
+        .pop_panel_div {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    .menu_small {
+        position: absolute;
+        right: 5%;
+        display: none;
+
+        @media screen and (max-width: 650px) {
+            display: block;
+        }
+
+        i {
+            color: #ffffff;
+            opacity: 60%;
+        }
+    }
+
+    .buttonBeta1 {
+        color: #fff;
+        cursor: pointer;
+        background: #1c1c1c;
+        // letter-spacing: .15rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: #84B9D1 solid 2px;
+        border-radius: 12px;
+        padding: 0.5rem 1rem;
+
+        b {
+            background: linear-gradient(105.14deg, #84B9D1, #D2B4FC);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
     }
 
     .logo {
         flex: 1;
-
         .logobg {
             padding: 1.5rem 1.2rem;
             background: #1c1c1c;
             width: min-content;
             border-radius: 0 0 18px 18px;
+            display: flex;
+            flex-direction: column;
+
+            @media screen and (max-width: 650px) {
+                width: 100%;
+            }
+
+            img {
+                @media screen and (max-width: 650px) {
+                    margin: auto;
+                    align-self: center;
+                }
+            }
         }
     }
 
@@ -61,14 +126,39 @@
             color: #fff;
             cursor: pointer;
             // letter-spacing: .15rem;
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-weight: 500;
 
             @media screen and (max-width: 650px) {
-                // display: none;
-                font-size: 0.8rem;
-                margin-right: 10%;
+                display: none;
             }
+
+            b {
+                color: #5865F2;
+            }
+        }
+
+        .buttonBeta {
+            color: #fff;
+            cursor: pointer;
+            background: #1c1c1c;
+            // letter-spacing: .15rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: #84B9D1 solid 2px;
+            border-radius: 12px;
+            padding: 0.5rem 1rem;
+
+            @media screen and (max-width: 650px) {
+                display: none;
+            }
+
+            b {
+                background: linear-gradient(105.14deg, #84B9D1, #D2B4FC);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
         }
 
         .login_link {
@@ -130,6 +220,8 @@
             }
         }
     }
+
+    
 }
 
 .colorChange {

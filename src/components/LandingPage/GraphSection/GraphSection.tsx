@@ -51,9 +51,9 @@ export default function GraphSection() {
                 scale: .9
             }} animate={animateCard} ref={cardRef}>
                 <section className={styles.section1}>
-                    <h3>Liquid membership</h3>
+                    <h3 className='font-semibold'>Liquid membership</h3>
                     <p>
-                        Semi Exclusive Decentralized Organizations are decentralized organizations that have tokenized membership moderated by a discrete bonding curve. Semi Exclusive DAOs with extreme flexibility in fee structures for decentralized organizations.
+                    Semi Exclusive Decentralized Organizations are decentralized organizations that have tokenized membership moderated by a discrete bonding curve. Semi Exclusive DAOs have extreme flexibility in fee structures for token membership.
                     </p>
                 </section>
 

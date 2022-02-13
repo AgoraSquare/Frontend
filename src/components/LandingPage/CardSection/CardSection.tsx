@@ -8,8 +8,8 @@ const image_urls = ['c1.svg', 'c2.svg', 'c3.svg', 'c4.svg'];
 const titles = ['DAO Factory', 'Decentralized Moderation', 'Incentivizing Discourse', 'Ad Rewards'];
 const descriptions = ["Allows users to create and join communities with shared interests and values by creating and joining DAOs generated on the Agora platform.",
     "Rules over Rulers, the protocol will return power to the subcommunity rules rather than the moderators enforcing them. ",
-    "Conflicting viewpoints rarely engage with one another in a productive manner. Agora users can crowdfund incentives for thought leaders to dialoauge  through discourse pools.",
-    "Users on Agora have the option of opting in for rewards earned from interating with advertisement on the platform."
+    "Conflicting viewpoints rarely engage with one another in a productive manner. Agora users can crowdfund incentives for thought leaders to dialogue through discourse pools.",
+    "Users on Agora have the option of opting in to receive rewards from interacting with advertisement on the platform. Users will be able to monetize post shout-outs directly to advertisers and their followers!"
 ];
 
 export default function CardSection() {

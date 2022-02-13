@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <Head>
-        <title>AGORA DAPP</title>
+        <title>AGORA SQUARE</title>
       </Head>
       <Navbar />
 
@@ -24,7 +24,6 @@ export default function Home() {
         <GraphSection />
         <RoadMap />
         <MailList />
-        <LatestReads />
       </main>
 
       <Footer />
